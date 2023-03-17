@@ -6,6 +6,7 @@ import carouselImg4 from '../assets/images/carousel_004.jpeg'
 export const homeCarouselData = [
     {
         id: 1,
+        bg:'dark',
         intro: 'nouveau !',
         title: 'la collection george harrisson darks horse records',
         description:'des sangles en patchwork et des médiators exclusifs qui rendent hommage au mythique album de 1974.',
@@ -14,6 +15,7 @@ export const homeCarouselData = [
     },
     {
         id: 2,
+        bg:'light',
         intro: 'american vintage II',
         title: 'les originaux de retour',
         description:'recréés dans les moindre détails. Tous.',
@@ -22,6 +24,7 @@ export const homeCarouselData = [
     },
     {
         id: 3,
+        bg:'light',
         intro: '',
         title: 'fender x wrangler®',
         description:`La toute nouvelle collection d'accessoires en édition limitée se caractérise par un grand souci du détail et des matériaux authentiques de Wrangler.`,
@@ -30,6 +33,7 @@ export const homeCarouselData = [
     },
     {
         id: 4,
+        bg:'dark',
         intro: 'découvrez la',
         title: 'troy sanders precision bass®',
         description:'le son dévastateur de Mastodon au bout de vos doigts.',
