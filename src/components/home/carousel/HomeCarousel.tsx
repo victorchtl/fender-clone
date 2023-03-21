@@ -12,16 +12,16 @@ export const HomeCarousel = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
 
   useEffect(() => {
-    let timer:NodeJS.Timer;
+    let timer: NodeJS.Timer;
     if (isPlaying) {
       timer = setInterval(() => {
-        if (carouselIndex < 3) setCarouselIndex(carouselIndex+1)
+        if (carouselIndex < 3) setCarouselIndex(carouselIndex + 1)
         else setCarouselIndex(0)
-        }, 10000)
+      }, 10000)
     }
     return () => clearInterval(timer)
   }, [carouselIndex, isPlaying])
-  
+
 
   return (
     <Box
@@ -52,8 +52,13 @@ export const HomeCarousel = () => {
           />
         ))}
       </Box>
-      <Box position={'absolute'} zIndex={999} sx={{right:'10px', bottom:'10px'}} onClick={() => setIsPlaying(!isPlaying)}>
-            <PlayCircleOutlineRoundedIcon fontSize='large' sx={{color:'white'}}/>
+      <Box position={'absolute'} zIndex={999} sx={{ right: '10px', bottom: '10px', cursor:'pointer' }} onClick={() => setIsPlaying(!isPlaying)}>
+        {isPlaying ?
+          <PauseCircleOutlineRoundedIcon fontSize='large' sx={{ color: 'white' }} />
+          :
+          <PlayCircleOutlineRoundedIcon fontSize='large' sx={{ color: 'white' }} />
+        }
+
       </Box>
       {homeCarouselData.map((item, index) => (
         <Box
@@ -64,7 +69,7 @@ export const HomeCarousel = () => {
             transition: 'all .5s ease-in-out'
           }}
         >
-          <HomeCarouselItem item={item}/>
+          <HomeCarouselItem item={item} />
         </Box>
       ))}
     </Box>
