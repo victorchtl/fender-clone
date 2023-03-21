@@ -5,6 +5,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Searchbar } from './Searchbar';
 
 export const Navbar = () => {
@@ -14,6 +15,19 @@ export const Navbar = () => {
     'play',
     'tune',
     'beginners'
+  ]
+
+  const menuLinks = [
+    'MOD SHOP',
+    'GUITARES',
+    'ACOUSTASONIC',
+    'ACOUSTIQUE',
+    'BASSES',
+    'AMPLIS',
+    'PÉDALES',
+    'PIÈCES',
+    'ACCESSOIRES',
+    'SQUIER'
   ]
 
   return (
@@ -28,15 +42,15 @@ export const Navbar = () => {
           ))}
         </Box>
         <Box mt={1} mr={6} display={'flex'} alignItems={'center'}>
-          <AccountCircleRoundedIcon fontSize='small' sx={{color:'primary.main'}}/>
-          <Typography ml={1} sx={{ fontSize: '.5rem', fontWeight: 600, color:'primary.main' }}>SE CONNECTER</Typography>
+          <AccountCircleRoundedIcon fontSize='small' sx={{ color: 'primary.main' }} />
+          <Typography ml={1} sx={{ fontSize: '.5rem', fontWeight: 600, color: 'primary.main' }}>SE CONNECTER</Typography>
         </Box>
       </Box>
 
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
           <Box>
-            <MenuRoundedIcon sx={{color:'text.secondary', marginRight:'20px'}}/>
+            <MenuRoundedIcon sx={{ color: 'text.secondary', marginRight: '20px' }} />
             <Box component={'img'} src={logo} width={'80px'} />
           </Box>
           <Searchbar />
@@ -47,10 +61,23 @@ export const Navbar = () => {
         </Toolbar>
       </Container>
 
-      <Box sx={{backgroundColor:'black'}} p={1}>
+      <Box width={'100%'} display={'flex'} justifyContent={'center'} mb={2}>
+        {menuLinks.map((el, index) => (
+          <Box key={index} display={'flex'} alignItems={'center'}>
+            <Typography color={'text.secondary'} fontSize={'.8rem'} ml={index !== 0 ? 1 : 0}>{el}</Typography>
+            {index !== 0 ?
+              <ArrowDropDownIcon fontSize='small' sx={{ color: 'text.secondary' }} />
+              :
+              undefined
+            }
+          </Box>
+        ))}
+      </Box>
+
+      <Box sx={{ backgroundColor: 'black' }} p={1}>
         <Typography textAlign={'center'} fontSize={'.6rem'}>
           <b><u>Livraison gratuite</u></b> à partir de 50€ d'achat
-          </Typography>
+        </Typography>
       </Box>
 
     </AppBar>
